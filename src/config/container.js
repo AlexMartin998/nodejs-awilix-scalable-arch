@@ -1,10 +1,11 @@
 import { asClass, asFunction, asValue, createContainer } from 'awilix';
 
 import { HomeController } from '../app/controllers/index.js';
-import { HomeService } from './../app/services/index.js';
 import { HomeRoutes, routerApp } from '../app/routes/index.js';
-import config from './index.js';
 import { Server } from '../server.js';
+import { HomeService } from './../app/services/index.js';
+import { Comment, Idea, User } from './../data/models/index.js';
+import config from './index.js';
 
 const container = createContainer();
 
@@ -22,6 +23,11 @@ container
   })
   .register({
     HomeRoutes: asFunction(HomeRoutes).singleton(),
+  })
+  .register({
+    User: asValue(User),
+    Comment: asValue(Comment),
+    Idea: asValue(Idea),
   });
 
 export { container };
