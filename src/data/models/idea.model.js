@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+import mongooseAutoPopulate from 'mongoose-autopopulate';
 
 const IdeaSchema = new Schema({
   idea: {
@@ -30,6 +31,6 @@ const IdeaSchema = new Schema({
 });
 
 // Plugins
-IdeaSchema.plugin(import('mongoose-autopopulate'));
+IdeaSchema.plugin(mongooseAutoPopulate);
 
-module.exports = model('Idea', IdeaSchema);
+export default model('Idea', IdeaSchema);

@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+import mongooseAutoPopulate from 'mongoose-autopopulate';
 
 const CommentSchema = Schema(
   {
@@ -22,6 +23,6 @@ const CommentSchema = Schema(
 );
 
 // Plugins
-CommentSchema.plugin(import('mongoose-autopopulate'));
+CommentSchema.plugin(mongooseAutoPopulate);
 
-module.exports = model('Comment', CommentSchema);
+export default model('Comment', CommentSchema);
