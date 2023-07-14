@@ -5,6 +5,11 @@ import { HomeRoutes, routerApp } from '../app/routes/index.js';
 import { Server } from '../server.js';
 import { HomeService } from './../app/services/index.js';
 import { Comment, Idea, User } from './../data/models/index.js';
+import {
+  CommentRepository,
+  IdeaRepository,
+  UserRepository,
+} from './../data/repositories/index.js';
 import config from './index.js';
 
 const container = createContainer();
@@ -28,6 +33,11 @@ container
     User: asValue(User),
     Comment: asValue(Comment),
     Idea: asValue(Idea),
+  })
+  .register({
+    UserRepository: asClass(UserRepository).singleton(),
+    CommentRepository: asClass(CommentRepository).singleton(),
+    IdeaRepository: asClass(IdeaRepository).singleton(),
   });
 
 export { container };
