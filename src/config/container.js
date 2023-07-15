@@ -1,6 +1,11 @@
 import { asClass, asFunction, asValue, createContainer } from 'awilix';
 
-import { HomeController } from '../app/controllers/index.js';
+import {
+  CommentController,
+  HomeController,
+  IdeaController,
+  UserController,
+} from '../app/controllers/index.js';
 import { HomeRoutes, routerApp } from '../app/routes/index.js';
 import { Server } from '../server.js';
 import {
@@ -33,6 +38,11 @@ container
   })
   .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
+    CommentController: asClass(
+      CommentController.bind(CommentController)
+    ).singleton(),
+    IdeaController: asClass(IdeaController.bind(IdeaController)).singleton(),
+    UserController: asClass(UserController.bind(UserController)).singleton(),
   })
   .register({
     HomeRoutes: asFunction(HomeRoutes).singleton(),
