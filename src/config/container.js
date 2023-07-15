@@ -7,6 +7,7 @@ import {
   UserController,
 } from '../app/controllers/index.js';
 import {
+  CommentRoutes,
   HomeRoutes,
   IdeaRoutes,
   UserRoutes,
@@ -53,6 +54,7 @@ container
     HomeRoutes: asFunction(HomeRoutes).singleton(),
     UserRoutes: asFunction(UserRoutes).singleton(),
     IdeaRoutes: asFunction(IdeaRoutes).singleton(),
+    CommentRoutes: asFunction(CommentRoutes).singleton(),
   })
   .register({
     User: asValue(User),
