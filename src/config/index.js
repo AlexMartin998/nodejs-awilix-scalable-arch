@@ -7,4 +7,5 @@ export default {
   MONGO_URI: process.env.MONGO_URI,
   APPLICATION_NAME: process.env.APPLICATION_NAME,
   STAGE: process.env.STAGE || 'development',
+  JWT_SECRET: process.env.JWT_SECRET,
 };

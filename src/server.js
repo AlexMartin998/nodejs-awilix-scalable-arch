@@ -9,6 +9,7 @@ import {
   notFoundMiddleware,
 } from './app/middlewares/index.js';
 import { dbConnection } from './data/db.js';
+import { Logger } from './utils/Logger.js';
 
 export class Server {
   #app;
@@ -41,7 +42,7 @@ export class Server {
 
   listen() {
     this.#app.listen(this.#config.PORT, () => {
-      console.log(
+      Logger.log(
         `${this.#config.APPLICATION_NAME} API is running on PORT ${
           this.#config.PORT
         }`
