@@ -1,16 +1,20 @@
 let _authService;
 
 export class AuthController {
-  async singUp(req, res) {
+  constructor({ AuthService }) {
+    _authService = AuthService;
+  }
+
+  async signUp(req, res) {
     const { body } = req;
     const user = await _authService.signUp(body);
 
     return res.status(201).json(user);
   }
 
-  async singIn(req, res) {
+  async signIn(req, res) {
     const { body } = req;
-    const signInResponse = await _authService.signUp(body);
+    const signInResponse = await _authService.signIn(body);
 
     return res.status(200).json(signInResponse);
   }

@@ -13,6 +13,7 @@ import {
   IdeaRoutes,
   UserRoutes,
   routerApp,
+  AuthRoutes,
 } from '../app/routes/index.js';
 import { Server } from '../server.js';
 import {
@@ -59,6 +60,7 @@ container
     UserRoutes: asFunction(UserRoutes).singleton(),
     IdeaRoutes: asFunction(IdeaRoutes).singleton(),
     CommentRoutes: asFunction(CommentRoutes).singleton(),
+    AuthRoutes: asFunction(AuthRoutes).singleton(),
   })
   .register({
     User: asValue(User),
