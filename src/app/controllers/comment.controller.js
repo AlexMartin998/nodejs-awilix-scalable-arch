@@ -37,7 +37,7 @@ export class CommentController {
   async createIdeaComment(req, res) {
     const { body } = req;
     const { ideaId } = req.params;
-    const newComment = _commentService.createIdeaComment();
+    const newComment = _commentService.createIdeaComment(ideaId, body);
 
     return res.status(201).json(newComment);
   }
