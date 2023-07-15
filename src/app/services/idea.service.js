@@ -10,6 +10,7 @@ export class IdeaService extends BaseService {
   }
 
   async findAllByAuthor(authorId) {
+    // TODO: no validar si viene o no el id xq eso ya lo hace express-validator
     if (!authorId) throw new Error('400 - auther id must be sent');
 
     return await this.#ideaRepository.findAllByAuthor(authorId);
