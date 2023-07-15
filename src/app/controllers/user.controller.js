@@ -13,7 +13,7 @@ export class UserController {
   }
 
   async findAll(_req, res) {
-    const users = await _userService.getAll();
+    const users = await _userService.findAll();
 
     return res.status(200).json(users);
   }
