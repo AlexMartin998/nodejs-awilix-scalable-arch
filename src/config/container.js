@@ -15,6 +15,7 @@ import {
 } from '../app/routes/index.js';
 import { Server } from '../server.js';
 import {
+  AuthService,
   CommentService,
   HomeService,
   IdeaService,
@@ -41,6 +42,7 @@ container
     CommentService: asClass(CommentService).singleton(),
     IdeaService: asClass(IdeaService).singleton(),
     UserService: asClass(UserService).singleton(),
+    AuthService: asClass(AuthService).singleton(),
   })
   .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
