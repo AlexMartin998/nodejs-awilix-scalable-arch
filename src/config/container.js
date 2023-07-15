@@ -1,6 +1,7 @@
 import { asClass, asFunction, asValue, createContainer } from 'awilix';
 
 import {
+  AuthController,
   CommentController,
   HomeController,
   IdeaController,
@@ -45,6 +46,7 @@ container
     AuthService: asClass(AuthService).singleton(),
   })
   .register({
+    AuthController: asClass(AuthController.bind(AuthController)).singleton(),
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
     CommentController: asClass(
       CommentController.bind(CommentController)
