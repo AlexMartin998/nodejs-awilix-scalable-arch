@@ -12,7 +12,7 @@ export class BaseService {
 
     const currentEntity = await this.#repository.findOne(id);
     if (!currentEntity)
-      throw new NotFoundException(`Record with '${id}' not found`);
+      throw new NotFoundException(`Record with id '${id}' not found`);
 
     return currentEntity;
   }
