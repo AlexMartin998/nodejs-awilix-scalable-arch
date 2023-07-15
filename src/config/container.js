@@ -6,7 +6,12 @@ import {
   IdeaController,
   UserController,
 } from '../app/controllers/index.js';
-import { HomeRoutes, routerApp, UserRoutes } from '../app/routes/index.js';
+import {
+  HomeRoutes,
+  IdeaRoutes,
+  UserRoutes,
+  routerApp,
+} from '../app/routes/index.js';
 import { Server } from '../server.js';
 import {
   CommentService,
@@ -47,6 +52,7 @@ container
   .register({
     HomeRoutes: asFunction(HomeRoutes).singleton(),
     UserRoutes: asFunction(UserRoutes).singleton(),
+    IdeaRoutes: asFunction(IdeaRoutes).singleton(),
   })
   .register({
     User: asValue(User),
