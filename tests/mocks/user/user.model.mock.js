@@ -1,7 +1,7 @@
 export const UserMock = {
   user: {
-    id: '61b115b8ba72e424fbf95193',
-    _id: '61b115b8ba72e424fbf95193',
+    id: '61b115b8ba72e424fbf95194',
+    _id: '61b115b8ba72e424fbf95194',
     name: 'Alex 30',
     username: 'alex_30',
     email: 'test30@test.com',
