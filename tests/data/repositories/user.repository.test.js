@@ -7,7 +7,7 @@ import { UserMock } from './../../mocks/index.js';
 const userMock = UserMock.user;
 let usersMock = UserMock.users;
 
-describe('[ USER REPOSITORY ]: Suit tests', () => {
+describe('[ USER REPOSITORY ]: Test suit', () => {
   beforeEach(() => {
     mockingoose.resetAll();
     jest.clearAllMocks();
@@ -58,7 +58,7 @@ describe('[ USER REPOSITORY ]: Suit tests', () => {
     expect(JSON.parse(JSON.stringify(expected))).toMatchObject(mockedUser);
   });
 
-  it('5. Should delete an especific user by id', async () => {
+  it('4. Should delete an especific user by id', async () => {
     mockingoose(User).toReturn(userMock, 'findOneAndDelete');
 
     const userRepository = new UserRepository({ User });
