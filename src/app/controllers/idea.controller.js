@@ -12,8 +12,9 @@ export class IdeaController {
     return res.status(200).json(idea);
   }
 
-  async findAll(_req, res) {
-    const ideas = await _ideaService.getAll();
+  async findAll(req, res) {
+    const { pageSize, pageNumber } = req.query;
+    const ideas = await _ideaService.getAll(pageSize, pageNumber);
 
     return res.status(200).json(ideas);
   }

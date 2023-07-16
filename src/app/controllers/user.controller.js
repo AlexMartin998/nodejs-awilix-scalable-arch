@@ -12,8 +12,9 @@ export class UserController {
     return res.status(200).json(user);
   }
 
-  async findAll(_req, res) {
-    const users = await _userService.findAll();
+  async findAll(req, res) {
+    const { pageSize, pageNumber } = req.query;
+    const users = await _userService.findAll(pageSize, pageNumber);
 
     return res.status(200).json(users);
   }

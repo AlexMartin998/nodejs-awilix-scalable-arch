@@ -17,8 +17,8 @@ export class BaseService {
     return currentEntity;
   }
 
-  async findAll() {
-    return await this.#repository.findAll();
+  async findAll(pageSize = 5, pageNumber = 1) {
+    return await this.#repository.findAll(pageSize, pageNumber);
   }
 
   async create(entity) {
