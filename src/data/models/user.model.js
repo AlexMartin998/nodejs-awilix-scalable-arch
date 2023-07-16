@@ -47,8 +47,8 @@ UserSchema.pre('save', async function (next) {
   next();
 });
 
-UserSchema.methods.comparePassword = async function (password) {
-  return await bcryptjs.compare(password, this.password);
+UserSchema.methods.comparePassword = function (password) {
+  return bcryptjs.compareSync(password, this.password);
 };
 
 // mongoose calls it each time that we read a document

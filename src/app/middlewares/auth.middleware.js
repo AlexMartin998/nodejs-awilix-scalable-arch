@@ -5,7 +5,7 @@ import { Logger } from '../../utils/Logger.js';
 export const protectWithJwt = async (req, res, next) => {
   const bearerToken = req.header('Authorization');
   if (!bearerToken || !bearerToken.startsWith('Bearer'))
-    return res.status(401).json({ ok: false, msg: 'Invalid token!' });
+    return res.status(401).json({ message: ['Invalid token'] });
 
   const tokenJwt = bearerToken.split(' ')[1];
 
@@ -22,6 +22,6 @@ export const protectWithJwt = async (req, res, next) => {
   } catch (error) {
     Logger.error('Error while creating the JWT');
     Logger.error(JSON.stringify(error));
-    return res.status(401).json({ ok: false, msg: 'Invalid token!' });
+    return res.status(401).json({ message: ['Invalid token'] });
   }
 };

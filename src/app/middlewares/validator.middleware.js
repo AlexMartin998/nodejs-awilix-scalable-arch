@@ -39,3 +39,5 @@ export const signUpRules = () => {
     validate,
   ];
 };
+
+export const loginRules = () => [...emailPassRules(), validate];

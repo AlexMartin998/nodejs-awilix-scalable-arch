@@ -22,7 +22,7 @@ export class AuthService extends BaseService {
   }
 
   async signIn({ email, password }) {
-    const userExist = this.#userService.findOneByEmail(email);
+    const userExist = await this.#userService.findOneByEmail(email);
     if (!userExist || !userExist.comparePassword(password))
       throw new UnauthorizedException(
         'There was a problem logging in. Check your email and password or create an account.'
