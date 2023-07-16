@@ -1,3 +1,4 @@
+import { AlreadyExistsException } from '../../errors/AlreadyExistsException.js';
 import { generateJWT } from '../../utils/index.js';
 import { BaseService } from './base.service.js';
 
@@ -12,7 +13,7 @@ export class AuthService extends BaseService {
   async signUp(user) {
     const { email } = user;
     const userExist = this.#userService.findOneByEmail(email);
-    if (userExist) throw new Error('User already exists');
+    if (userExist) throw new AlreadyExistsException('User already exists');
 
     return await this.#userService.create(user);
   }

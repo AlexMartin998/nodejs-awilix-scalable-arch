@@ -22,3 +22,20 @@ export const idRules = collection => [
   param('id').custom((id, { req }) => idExistInDB(id, collection, req)),
   validate,
 ];
+
+// Auth
+const emailPassRules = () => [
+  body('email', 'Invalid email').isEmail(),
+  body('password', 'Password must be longer than 6 characters').isLength({
+    min: 6,
+  }),
+];
+
+export const signUpRules = () => {
+  return [
+    body('name', 'Invalid name').notEmpty(),
+    body('username', 'Invalid username').notEmpty(),
+    ...emailPassRules(),
+    validate,
+  ];
+};

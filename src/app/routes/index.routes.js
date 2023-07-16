@@ -1,5 +1,4 @@
 import express from 'express';
-import 'express-async-errors';
 
 export default function ({
   HomeRoutes,
@@ -18,5 +17,6 @@ export default function ({
   apiRoutes.use('/comments', CommentRoutes);
 
   router.use('/v1/api', apiRoutes);
+
   return router;
 }

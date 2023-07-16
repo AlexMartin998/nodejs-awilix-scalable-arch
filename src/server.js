@@ -1,6 +1,7 @@
 import compression from 'compression';
 import cors from 'cors';
 import express from 'express';
+import 'express-async-errors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
@@ -16,10 +17,12 @@ export class Server {
   #config;
 
   constructor({ config, router }) {
-    this.#app = express().use(router);
+    this.#app = express();
     this.#config = config;
     this.connectToDB();
     this.middlewares();
+    this.#app.use(router); // set app router
+    this.finalMiddlewares();
   }
 
   async connectToDB() {
@@ -35,7 +38,9 @@ export class Server {
       .use(helmet())
       .use(compression())
       .use(morgan('dev'));
+  }
 
+  finalMiddlewares() {
     this.#app.use(notFoundMiddleware);
     this.#app.use(errorMiddleware);
   }
