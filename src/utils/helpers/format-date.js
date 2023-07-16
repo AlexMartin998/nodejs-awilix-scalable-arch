@@ -1,4 +1,4 @@
-export const loggerDateFormatter = date => {
+const loggerDateFormatter = date => {
   const options = {
     day: 'numeric',
     year: 'numeric',
@@ -13,4 +13,8 @@ export const loggerDateFormatter = date => {
     : new Date().toLocaleDateString('en-US', options);
 
   return formattedDate;
+};
+
+module.exports = {
+  loggerDateFormatter,
 };

@@ -1,6 +1,6 @@
-import { BaseRepository } from './base.repository.js';
+const BaseRepository = require('./base.repository');
 
-export class CommentRepository extends BaseRepository {
+class CommentRepository extends BaseRepository {
   #comment;
 
   constructor({ Comment }) {
@@ -8,3 +8,5 @@ export class CommentRepository extends BaseRepository {
     this.#comment = Comment;
   }
 }
+
+module.exports = CommentRepository;

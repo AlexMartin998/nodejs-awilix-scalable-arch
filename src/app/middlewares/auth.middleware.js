@@ -1,8 +1,10 @@
-import { container } from '../../config/container.js';
-import config from '../../config/index.js';
-import { Logger } from '../../utils/Logger.js';
+const jwt = require('jsonwebtoken');
 
-export const protectWithJwt = async (req, res, next) => {
+const container = require('../../config/container');
+const { Logger } = require('../../utils');
+const config = require('../../config/index.js');
+
+const protectWithJwt = async (req, res, next) => {
   const bearerToken = req.header('Authorization');
   if (!bearerToken || !bearerToken.startsWith('Bearer'))
     return res.status(401).json({ message: ['Invalid token'] });
@@ -24,4 +26,8 @@ export const protectWithJwt = async (req, res, next) => {
     Logger.error(JSON.stringify(error));
     return res.status(401).json({ message: ['Invalid token'] });
   }
+};
+
+module.exports = {
+  protectWithJwt,
 };

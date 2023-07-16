@@ -1,6 +1,6 @@
 let _commentService;
 
-export class CommentController {
+class CommentController {
   constructor({ CommentService }) {
     _commentService = CommentService;
   }
@@ -42,3 +42,5 @@ export class CommentController {
     return res.status(201).json(newComment);
   }
 }
+
+module.exports = CommentController;

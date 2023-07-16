@@ -1,8 +1,8 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
-import { idRules, parseIntMiddleware } from '../middlewares/index.js';
+const { idRules, parseIntMiddleware } = require('../middlewares/index.js');
 
-export default function ({ UserController }) {
+module.exports = function ({ UserController }) {
   const router = Router();
 
   router.get('/:id', [...idRules()], UserController.findOne);
@@ -11,4 +11,4 @@ export default function ({ UserController }) {
   router.delete('/:id', [...idRules()], UserController.remove);
 
   return router;
-}
+};

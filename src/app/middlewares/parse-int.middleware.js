@@ -1,4 +1,4 @@
-export default function (req, _res, next) {
+module.exports = function (req, _res, next) {
   const queryStrings = req.query;
 
   for (const key in queryStrings) {
@@ -13,4 +13,4 @@ export default function (req, _res, next) {
   req.query = queryStrings;
 
   next();
-}
+};

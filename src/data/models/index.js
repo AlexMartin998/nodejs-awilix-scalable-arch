@@ -1,3 +1,5 @@
-export { default as User } from './user.model.js';
-export { default as Idea } from './idea.model.js';
-export { default as Comment } from './comment.model.js';
+module.exports = {
+  User: require('./user.model.js'),
+  Idea: require('./idea.model.js'),
+  Comment: require('./comment.model.js'),
+};

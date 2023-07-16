@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import { loggerDateFormatter } from './helpers/index.js';
+const chalk = require('chalk');
+const { loggerDateFormatter } = require('./helpers');
 
-export class Logger {
+class Logger {
   static _getLogHeader() {
     const timestamp = loggerDateFormatter();
     const appInfo = chalk.green(`[App] ${process.pid}`);
@@ -24,3 +24,5 @@ export class Logger {
     console.error(logHeader, chalk.red(`[ERROR] ${message}`));
   }
 }
+
+module.exports = Logger;

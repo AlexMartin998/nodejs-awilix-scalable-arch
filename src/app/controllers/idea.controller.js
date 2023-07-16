@@ -1,6 +1,6 @@
 let _ideaService;
 
-export class IdeaController {
+class IdeaController {
   constructor({ IdeaService }) {
     _ideaService = IdeaService;
   }
@@ -62,3 +62,5 @@ export class IdeaController {
     return res.status(200).json(idea);
   }
 }
+
+module.exports = IdeaController;

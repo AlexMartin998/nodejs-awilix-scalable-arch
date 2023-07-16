@@ -1,6 +1,6 @@
-import { BaseService } from './base.service.js';
+const BaseService = require('./base.service');
 
-export class CommentService extends BaseService {
+class CommentService extends BaseService {
   #commentRepository;
   #ideaRepository;
   #ideaService;
@@ -30,3 +30,5 @@ export class CommentService extends BaseService {
     });
   }
 }
+
+module.exports = CommentService;

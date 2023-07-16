@@ -1,3 +1,7 @@
-export * from './user.repository.js';
-export * from './idea.respository.js';
-export * from './comment.repository.js';
+'use strict';
+
+module.exports = {
+  CommentRepository: require('./comment.repository'),
+  IdeaRepository: require('./idea.respository'),
+  UserRepository: require('./user.repository'),
+};

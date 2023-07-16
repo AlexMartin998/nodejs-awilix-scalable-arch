@@ -1,7 +1,7 @@
-import { NotFoundException } from '../../errors/index.js';
-import { BaseService } from './base.service.js';
+const { NotFoundException } = require('../../errors');
+const BaseService = require('./base.service');
 
-export class IdeaService extends BaseService {
+class IdeaService extends BaseService {
   #ideaRepository;
 
   constructor({ IdeaRepository }) {
@@ -39,3 +39,5 @@ export class IdeaService extends BaseService {
     return await this.#ideaRepository(ideaId, { upvotes: idea.upvotes });
   }
 }
+
+module.exports = IdeaService;

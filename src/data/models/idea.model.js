@@ -1,5 +1,4 @@
-import { model, Schema } from 'mongoose';
-import mongooseAutoPopulate from 'mongoose-autopopulate';
+const { model, Schema } = require('mongoose');
 
 const IdeaSchema = new Schema(
   {
@@ -37,7 +36,7 @@ const IdeaSchema = new Schema(
 );
 
 // Plugins
-IdeaSchema.plugin(mongooseAutoPopulate);
+IdeaSchema.plugin(require('mongoose-autopopulate'));
 
 IdeaSchema.methods.toJSON = function () {
   const idea = this.toObject();
@@ -51,4 +50,4 @@ IdeaSchema.methods.toJSON = function () {
   return idea;
 };
 
-export default model('Idea', IdeaSchema);
+module.exports = model('Idea', IdeaSchema);

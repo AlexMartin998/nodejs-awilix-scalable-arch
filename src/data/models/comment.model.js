@@ -1,5 +1,5 @@
-import { model, Schema } from 'mongoose';
-import mongooseAutoPopulate from 'mongoose-autopopulate';
+const { model, Schema } = require('mongoose');
+// import mongooseAutoPopulate from 'mongoose-autopopulate';
 
 const CommentSchema = Schema(
   {
@@ -23,6 +23,7 @@ const CommentSchema = Schema(
 );
 
 // Plugins
-CommentSchema.plugin(mongooseAutoPopulate);
+// CommentSchema.plugin(mongooseAutoPopulate);
+CommentSchema.plugin(require('mongoose-autopopulate'));
 
-export default model('Comment', CommentSchema);
+module.exports = model('Comment', CommentSchema);

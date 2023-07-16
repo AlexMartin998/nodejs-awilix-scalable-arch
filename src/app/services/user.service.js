@@ -1,6 +1,6 @@
-import { BaseService } from './base.service.js';
+const BaseService = require('./base.service');
 
-export class UserService extends BaseService {
+class UserService extends BaseService {
   #userRepository;
 
   constructor({ UserRepository }) {
@@ -12,3 +12,5 @@ export class UserService extends BaseService {
     return await this.#userRepository.findOneByEmail(email);
   }
 }
+
+module.exports = UserService;

@@ -1,2 +1,7 @@
-export * from './jwt.helper.js';
-export * from './format-date.js';
+const helpers = require('./jwt.helper');
+const formatDate = require('./format-date');
+
+module.exports = {
+  ...helpers,
+  ...formatDate,
+};

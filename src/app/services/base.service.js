@@ -1,6 +1,6 @@
-import { NotFoundException } from '../../errors/index.js';
+const { NotFoundException } = require('../../errors');
 
-export class BaseService {
+class BaseService {
   #repository;
 
   constructor(repository) {
@@ -37,3 +37,5 @@ export class BaseService {
     await this.#repository.remove(product.id);
   }
 }
+
+module.exports = BaseService;

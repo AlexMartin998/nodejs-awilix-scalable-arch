@@ -1,6 +1,6 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
-export default function ({ CommentController }) {
+module.exports = function ({ CommentController }) {
   const router = Router();
 
   router.get('/:id/unique', CommentController.findOne);
@@ -10,4 +10,4 @@ export default function ({ CommentController }) {
   router.delete('/:id', CommentController.remove);
 
   return router;
-}
+};

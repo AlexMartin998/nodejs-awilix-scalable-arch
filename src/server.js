@@ -1,18 +1,15 @@
-import compression from 'compression';
-import cors from 'cors';
-import express from 'express';
-import 'express-async-errors';
-import helmet from 'helmet';
-import morgan from 'morgan';
+const compression = require('compression');
+const cors = require('cors');
+const express = require('express');
+require('express-async-errors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 
-import {
-  errorMiddleware,
-  notFoundMiddleware,
-} from './app/middlewares/index.js';
-import { dbConnection } from './data/db.js';
-import { Logger } from './utils/Logger.js';
+const { errorMiddleware, notFoundMiddleware } = require('./app/middlewares');
+const dbConnection = require('./data/db.js');
+const { Logger } = require('./utils');
 
-export class Server {
+class Server {
   #app;
   #config;
 
@@ -55,3 +52,5 @@ export class Server {
     });
   }
 }
+
+module.exports = Server;

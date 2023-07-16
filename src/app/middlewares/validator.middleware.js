@@ -1,4 +1,4 @@
-import { param, validationResult, body } from 'express-validator';
+const { param, validationResult, body } = require('express-validator');
 
 const validate = (req, res, next) => {
   const errors = validationResult(req);
@@ -16,7 +16,7 @@ const validate = (req, res, next) => {
 
 const validateMongoId = () => [param('id', 'Invalid ID').isMongoId(), validate];
 
-export const idRules = () => [...validateMongoId(), validate];
+const idRules = () => [...validateMongoId(), validate];
 
 // Auth
 const emailPassRules = () => [
@@ -26,7 +26,7 @@ const emailPassRules = () => [
   }),
 ];
 
-export const signUpRules = () => {
+const signUpRules = () => {
   return [
     body('name', 'Invalid name').notEmpty(),
     body('username', 'Invalid username').notEmpty(),
@@ -35,4 +35,10 @@ export const signUpRules = () => {
   ];
 };
 
-export const loginRules = () => [...emailPassRules(), validate];
+const loginRules = () => [...emailPassRules(), validate];
+
+module.exports = {
+  idRules,
+  signUpRules,
+  loginRules,
+};

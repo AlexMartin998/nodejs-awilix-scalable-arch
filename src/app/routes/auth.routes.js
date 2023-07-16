@@ -1,12 +1,12 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
-import { loginRules, signUpRules } from '../middlewares/index.js';
+const { loginRules, signUpRules } = require('../middlewares');
 
-export default function ({ AuthController }) {
+module.exports = function ({ AuthController }) {
   const router = Router();
 
   router.post('/signup', [...signUpRules()], AuthController.signUp);
   router.post('/signin', [...loginRules()], AuthController.signIn);
 
   return router;
-}
+};

@@ -1,4 +1,4 @@
-export const UserRepositoryMock = {
+const UserRepositoryMock = {
   findOne: jest.fn(),
   findAll: jest.fn(),
   create: jest.fn(),
@@ -6,3 +6,5 @@ export const UserRepositoryMock = {
   remove: jest.fn(),
   findOneByEmail: jest.fn(),
 };
+
+module.exports = UserRepositoryMock;

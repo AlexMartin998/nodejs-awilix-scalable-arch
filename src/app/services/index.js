@@ -1,5 +1,9 @@
-export * from './auth.service.js';
-export * from './comment.service.js';
-export * from './home.service.js';
-export * from './idea.service.js';
-export * from './user.service.js';
+'use strict';
+
+module.exports = {
+  AuthService: require('./auth.service'),
+  CommentService: require('./comment.service'),
+  HomeService: require('./home.service'),
+  IdeaService: require('./idea.service'),
+  UserService: require('./user.service'),
+};

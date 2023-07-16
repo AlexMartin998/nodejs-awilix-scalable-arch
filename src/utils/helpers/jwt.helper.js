@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
-import { Logger } from './../Logger.js';
-import config from '../../config/index.js';
+const config = require('../../config');
+const Logger = require('./../Logger');
 
-export const generateJWT = id => {
+const generateJWT = id => {
   return new Promise((resolve, reject) => {
     jwt.sign({ id }, config.JWT_SECRET, { expiresIn: '24h' }, (err, token) => {
       if (err) {
@@ -14,4 +14,8 @@ export const generateJWT = id => {
       resolve(token);
     });
   });
+};
+
+module.exports = {
+  generateJWT,
 };

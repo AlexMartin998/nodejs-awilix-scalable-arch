@@ -1,6 +1,6 @@
-import { BaseRepository } from './base.repository.js';
+const BaseRepository = require('./base.repository');
 
-export class IdeaRepository extends BaseRepository {
+class IdeaRepository extends BaseRepository {
   #idea;
 
   constructor({ Idea }) {
@@ -12,3 +12,5 @@ export class IdeaRepository extends BaseRepository {
     return await this.#idea.find({ author });
   }
 }
+
+module.exports = IdeaRepository;

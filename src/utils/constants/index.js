@@ -1,1 +1,5 @@
-export * from './app.constants.js';
+const appConstants = require('./app.constants');
+
+module.exports = {
+  ...appConstants,
+};

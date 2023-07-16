@@ -1,6 +1,6 @@
-import express from 'express';
+const express = require('express');
 
-export default function ({
+module.exports = function ({
   HomeRoutes,
   UserRoutes,
   IdeaRoutes,
@@ -19,4 +19,4 @@ export default function ({
   router.use('/v1/api', apiRoutes);
 
   return router;
-}
+};

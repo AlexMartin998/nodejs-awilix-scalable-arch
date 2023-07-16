@@ -1,6 +1,6 @@
 let _userService;
 
-export class UserController {
+class UserController {
   constructor({ UserService }) {
     _userService = UserService;
   }
@@ -34,3 +34,5 @@ export class UserController {
     return res.status(200);
   }
 }
+
+module.exports = UserController;

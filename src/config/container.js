@@ -1,35 +1,35 @@
-import { asClass, asFunction, asValue, createContainer } from 'awilix';
+const { asClass, asFunction, asValue, createContainer } = require('awilix');
 
-import {
+const {
   AuthController,
   CommentController,
   HomeController,
   IdeaController,
   UserController,
-} from '../app/controllers/index.js';
-import {
+} = require('../app/controllers');
+const {
   CommentRoutes,
   HomeRoutes,
   IdeaRoutes,
   UserRoutes,
   routerApp,
   AuthRoutes,
-} from '../app/routes/index.js';
-import { Server } from '../server.js';
-import {
+} = require('../app/routes');
+const Server = require('../server.js');
+const {
   AuthService,
   CommentService,
   HomeService,
   IdeaService,
   UserService,
-} from './../app/services/index.js';
-import { Comment, Idea, User } from './../data/models/index.js';
-import {
+} = require('./../app/services');
+const { Comment, Idea, User } = require('./../data/models');
+const {
   CommentRepository,
   IdeaRepository,
   UserRepository,
-} from './../data/repositories/index.js';
-import config from './index.js';
+} = require('./../data/repositories');
+const config = require('./');
 
 const container = createContainer();
 
@@ -73,4 +73,4 @@ container
     IdeaRepository: asClass(IdeaRepository).singleton(),
   });
 
-export { container };
+module.exports = container;

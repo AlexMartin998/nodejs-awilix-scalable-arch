@@ -1,8 +1,9 @@
-import { Router } from 'express';
-import { CAHCE_TIME } from '../../utils/index.js';
-import { cacheMiddleware, parseIntMiddleware } from '../middlewares/index.js';
+const { Router } = require('express');
 
-export default function ({ IdeaController }) {
+const { CAHCE_TIME } = require('../../utils/constants');
+const { cacheMiddleware, parseIntMiddleware } = require('../middlewares');
+
+module.exports = function ({ IdeaController }) {
   const router = Router();
 
   router.get('/:id', IdeaController.findOne);
@@ -20,4 +21,4 @@ export default function ({ IdeaController }) {
   router.post(':id/downvote', IdeaController.downVoteIdea);
 
   return router;
-}
+};

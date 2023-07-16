@@ -1,3 +1,5 @@
-export * from './AlreadyExistsException.js';
-export * from './NotFoundException.js';
-export * from './UnauthorizedException.js';
+module.exports = {
+  AlreadyExistsException: require('./AlreadyExistsException.js'),
+  NotFoundException: require('./NotFoundException.js'),
+  UnauthorizedException: require('./UnauthorizedException.js'),
+};

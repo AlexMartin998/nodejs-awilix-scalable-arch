@@ -1,11 +1,11 @@
-import {
+const BaseService = require('./base.service');
+const {
   AlreadyExistsException,
   UnauthorizedException,
-} from '../../errors/index.js';
-import { generateJWT } from '../../utils/index.js';
-import { BaseService } from './base.service.js';
+} = require('../../errors');
+const { generateJWT } = require('../../utils');
 
-export class AuthService extends BaseService {
+class AuthService extends BaseService {
   #userService;
 
   constructor({ UserService }) {
@@ -33,3 +33,5 @@ export class AuthService extends BaseService {
     return { token, user: userExist };
   }
 }
+
+module.exports = AuthService;

@@ -1,6 +1,8 @@
-export { default as AuthRoutes } from './auth.routes.js';
-export { default as CommentRoutes } from './comment.routes.js';
-export { default as HomeRoutes } from './home.routes.js';
-export { default as IdeaRoutes } from './idea.routes.js';
-export { default as routerApp } from './index.routes.js';
-export { default as UserRoutes } from './user.routes.js';
+module.exports = {
+  AuthRoutes: require('./auth.routes'),
+  CommentRoutes: require('./comment.routes'),
+  HomeRoutes: require('./home.routes'),
+  IdeaRoutes: require('./idea.routes'),
+  routerApp: require('./index.routes'),
+  UserRoutes: require('./user.routes'),
+};

@@ -1,8 +1,10 @@
-import { HttpException } from './HttpException.js';
+const HttpException = require('./HttpException');
 
-export class AlreadyExistsException extends HttpException {
+class AlreadyExistsException extends HttpException {
   constructor(message) {
     super(message, 400);
     this.name = 'AlreadyExistsException';
   }
 }
+
+module.exports = AlreadyExistsException;

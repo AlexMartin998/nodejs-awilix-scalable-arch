@@ -1,2 +1,4 @@
-export * from './user/user.model.mock';
-export * from './user/user.repository.mock';
+module.exports = {
+  UserRepositoryMock: require('./user/user.repository.mock'),
+  UserMock: require('./user/user.model.mock'),
+};

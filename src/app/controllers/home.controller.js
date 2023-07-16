@@ -1,6 +1,6 @@
 let _homeService;
 
-export class HomeController {
+class HomeController {
   constructor({ HomeService }) {
     _homeService = HomeService;
   }
@@ -9,3 +9,5 @@ export class HomeController {
     return res.status(200).json(_homeService.index());
   }
 }
+
+module.exports = HomeController;

@@ -1,6 +1,6 @@
 let _authService;
 
-export class AuthController {
+class AuthController {
   constructor({ AuthService }) {
     _authService = AuthService;
   }
@@ -19,3 +19,5 @@ export class AuthController {
     return res.status(200).json(signInResponse);
   }
 }
+
+module.exports = AuthController;

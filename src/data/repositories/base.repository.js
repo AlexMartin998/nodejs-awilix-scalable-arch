@@ -1,4 +1,4 @@
-export class BaseRepository {
+class BaseRepository {
   constructor(model) {
     this.model = model;
   }
@@ -28,3 +28,5 @@ export class BaseRepository {
     await this.model.findByIdAndDelete(id);
   }
 }
+
+module.exports = BaseRepository;

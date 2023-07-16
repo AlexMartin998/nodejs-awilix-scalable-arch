@@ -1,5 +1,9 @@
-export * from './auth.controller.js';
-export * from './comment.controller.js';
-export * from './home.controller.js';
-export * from './idea.controller.js';
-export * from './user.controller.js';
+'use strict';
+
+module.exports = {
+  HomeController: require('./home.controller'),
+  UserController: require('./user.controller'),
+  IdeaController: require('./idea.controller'),
+  CommentController: require('./comment.controller'),
+  AuthController: require('./auth.controller'),
+};

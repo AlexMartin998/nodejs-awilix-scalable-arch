@@ -1,8 +1,8 @@
-import mcache from 'memory-cache';
+const mcache = require('memory-cache');
 
-import config from './../../config/index.js';
+const config = require('./../../config');
 
-export default function (duration) {
+module.exports = function (duration) {
   return (req, res, next) => {
     const key = config.CACHE_KEY + req.originUrl || req.url;
     const cachedBody = mcache.get(key);
@@ -23,4 +23,4 @@ export default function (duration) {
       next();
     }
   };
-}
+};
