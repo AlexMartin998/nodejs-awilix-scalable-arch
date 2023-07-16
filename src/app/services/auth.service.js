@@ -15,7 +15,7 @@ export class AuthService extends BaseService {
 
   async signUp(user) {
     const { email } = user;
-    const userExist = this.#userService.findOneByEmail(email);
+    const userExist = await this.#userService.findOneByEmail(email);
     if (userExist) throw new AlreadyExistsException('User already exists');
 
     return await this.#userService.create(user);
