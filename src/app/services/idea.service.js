@@ -20,7 +20,7 @@ export class IdeaService extends BaseService {
     if (!ideaId) throw new Error('400 - auther id must be sent');
 
     const idea = await this.#ideaRepository.findOne(ideaId);
-    if (!idea) throw new NotFoundException(`Idea '${id}' not found`);
+    if (!idea) throw new NotFoundException(`Idea '${ideaId}' not found`);
 
     idea.upvotes.push(true);
 
