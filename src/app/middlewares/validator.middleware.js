@@ -16,12 +16,7 @@ const validate = (req, res, next) => {
 
 const validateMongoId = () => [param('id', 'Invalid ID').isMongoId(), validate];
 
-export const idRules = collection => [
-  ...validateMongoId(),
-
-  param('id').custom((id, { req }) => idExistInDB(id, collection, req)),
-  validate,
-];
+export const idRules = () => [...validateMongoId(), validate];
 
 // Auth
 const emailPassRules = () => [
