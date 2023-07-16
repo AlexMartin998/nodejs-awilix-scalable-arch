@@ -1,4 +1,7 @@
-import { AlreadyExistsException } from '../../errors/AlreadyExistsException.js';
+import {
+  AlreadyExistsException,
+  UnauthorizedException,
+} from '../../errors/index.js';
 import { generateJWT } from '../../utils/index.js';
 import { BaseService } from './base.service.js';
 
@@ -21,7 +24,7 @@ export class AuthService extends BaseService {
   async signIn({ email, password }) {
     const userExist = this.#userService.findOneByEmail(email);
     if (!userExist || !userExist.comparePassword(password))
-      throw new Error(
+      throw new UnauthorizedException(
         'There was a problem logging in. Check your email and password or create an account.'
       );
 
