@@ -19,11 +19,14 @@ export class CommentService extends BaseService {
     return comments;
   }
 
-  async createIdeaComment(comment, ideaId) {
-    const idea = this.#ideaService.findOne(ideaId);
-    const newComment = this.create(comment);
+  async createIdeaComment(ideaId, comment, author) {
+    const idea = await this.#ideaService.findOne(ideaId);
 
-    idea.comments.push(newComment);
+    const createdComment = await this.#commentRepository.create({
+      ...comment,
+      author,
+    });
+    idea.comments.push(createdComment);
 
     return await this.#ideaRepository.update(ideaId, {
       comments: idea.comments,

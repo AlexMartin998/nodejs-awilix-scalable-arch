@@ -14,7 +14,10 @@ const validate = (req, res, next) => {
   return next();
 };
 
-const validateMongoId = () => [param('id', 'Invalid ID').isMongoId(), validate];
+export const validateMongoId = (paramString = 'id') => [
+  param(paramString, 'Invalid ID').isMongoId(),
+  validate,
+];
 
 export const idRules = () => [...validateMongoId(), validate];
 

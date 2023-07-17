@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 import { container } from '../../config/container.js';
 import config from '../../config/index.js';
 import { Logger } from '../../utils/Logger.js';
